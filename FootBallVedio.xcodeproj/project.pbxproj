@@ -1,0 +1,326 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E4138EB1171E4D26002E3BCD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4138EB0171E4D26002E3BCD /* UIKit.framework */; };
+		E4138EB3171E4D26002E3BCD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4138EB2171E4D26002E3BCD /* Foundation.framework */; };
+		E4138EB5171E4D26002E3BCD /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4138EB4171E4D26002E3BCD /* CoreGraphics.framework */; };
+		E4138EBB171E4D26002E3BCD /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = E4138EB9171E4D26002E3BCD /* InfoPlist.strings */; };
+		E4138EBD171E4D26002E3BCD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E4138EBC171E4D26002E3BCD /* main.m */; };
+		E4138EC1171E4D26002E3BCD /* JMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E4138EC0171E4D26002E3BCD /* JMAppDelegate.m */; };
+		E4138EC3171E4D26002E3BCD /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = E4138EC2171E4D26002E3BCD /* Default.png */; };
+		E4138EC5171E4D26002E3BCD /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4138EC4171E4D26002E3BCD /* Default@2x.png */; };
+		E4138EC7171E4D26002E3BCD /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E4138EC6171E4D26002E3BCD /* Default-568h@2x.png */; };
+		E4138ECA171E4D26002E3BCD /* JMMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4138EC9171E4D26002E3BCD /* JMMasterViewController.m */; };
+		E4138ECD171E4D26002E3BCD /* JMDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E4138ECC171E4D26002E3BCD /* JMDetailViewController.m */; };
+		E4138ED0171E4D26002E3BCD /* JMMasterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4138ECE171E4D26002E3BCD /* JMMasterViewController.xib */; };
+		E4138ED3171E4D26002E3BCD /* JMDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E4138ED1171E4D26002E3BCD /* JMDetailViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E4138EAD171E4D26002E3BCD /* FootBallVedio.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FootBallVedio.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E4138EB0171E4D26002E3BCD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		E4138EB2171E4D26002E3BCD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		E4138EB4171E4D26002E3BCD /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		E4138EB8171E4D26002E3BCD /* FootBallVedio-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FootBallVedio-Info.plist"; sourceTree = "<group>"; };
+		E4138EBA171E4D26002E3BCD /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		E4138EBC171E4D26002E3BCD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E4138EBE171E4D26002E3BCD /* FootBallVedio-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FootBallVedio-Prefix.pch"; sourceTree = "<group>"; };
+		E4138EBF171E4D26002E3BCD /* JMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMAppDelegate.h; sourceTree = "<group>"; };
+		E4138EC0171E4D26002E3BCD /* JMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMAppDelegate.m; sourceTree = "<group>"; };
+		E4138EC2171E4D26002E3BCD /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		E4138EC4171E4D26002E3BCD /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		E4138EC6171E4D26002E3BCD /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E4138EC8171E4D26002E3BCD /* JMMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMMasterViewController.h; sourceTree = "<group>"; };
+		E4138EC9171E4D26002E3BCD /* JMMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMMasterViewController.m; sourceTree = "<group>"; };
+		E4138ECB171E4D26002E3BCD /* JMDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JMDetailViewController.h; sourceTree = "<group>"; };
+		E4138ECC171E4D26002E3BCD /* JMDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JMDetailViewController.m; sourceTree = "<group>"; };
+		E4138ECF171E4D26002E3BCD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/JMMasterViewController.xib; sourceTree = "<group>"; };
+		E4138ED2171E4D26002E3BCD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/JMDetailViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E4138EAA171E4D26002E3BCD /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4138EB1171E4D26002E3BCD /* UIKit.framework in Frameworks */,
+				E4138EB3171E4D26002E3BCD /* Foundation.framework in Frameworks */,
+				E4138EB5171E4D26002E3BCD /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E4138EA4171E4D26002E3BCD = {
+			isa = PBXGroup;
+			children = (
+				E4138EB6171E4D26002E3BCD /* FootBallVedio */,
+				E4138EAF171E4D26002E3BCD /* Frameworks */,
+				E4138EAE171E4D26002E3BCD /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E4138EAE171E4D26002E3BCD /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E4138EAD171E4D26002E3BCD /* FootBallVedio.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E4138EAF171E4D26002E3BCD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4138EB0171E4D26002E3BCD /* UIKit.framework */,
+				E4138EB2171E4D26002E3BCD /* Foundation.framework */,
+				E4138EB4171E4D26002E3BCD /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E4138EB6171E4D26002E3BCD /* FootBallVedio */ = {
+			isa = PBXGroup;
+			children = (
+				E4138EBF171E4D26002E3BCD /* JMAppDelegate.h */,
+				E4138EC0171E4D26002E3BCD /* JMAppDelegate.m */,
+				E4138EC8171E4D26002E3BCD /* JMMasterViewController.h */,
+				E4138EC9171E4D26002E3BCD /* JMMasterViewController.m */,
+				E4138ECB171E4D26002E3BCD /* JMDetailViewController.h */,
+				E4138ECC171E4D26002E3BCD /* JMDetailViewController.m */,
+				E4138ECE171E4D26002E3BCD /* JMMasterViewController.xib */,
+				E4138ED1171E4D26002E3BCD /* JMDetailViewController.xib */,
+				E4138EB7171E4D26002E3BCD /* Supporting Files */,
+			);
+			path = FootBallVedio;
+			sourceTree = "<group>";
+		};
+		E4138EB7171E4D26002E3BCD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				E4138EB8171E4D26002E3BCD /* FootBallVedio-Info.plist */,
+				E4138EB9171E4D26002E3BCD /* InfoPlist.strings */,
+				E4138EBC171E4D26002E3BCD /* main.m */,
+				E4138EBE171E4D26002E3BCD /* FootBallVedio-Prefix.pch */,
+				E4138EC2171E4D26002E3BCD /* Default.png */,
+				E4138EC4171E4D26002E3BCD /* Default@2x.png */,
+				E4138EC6171E4D26002E3BCD /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E4138EAC171E4D26002E3BCD /* FootBallVedio */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E4138ED6171E4D26002E3BCD /* Build configuration list for PBXNativeTarget "FootBallVedio" */;
+			buildPhases = (
+				E4138EA9171E4D26002E3BCD /* Sources */,
+				E4138EAA171E4D26002E3BCD /* Frameworks */,
+				E4138EAB171E4D26002E3BCD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FootBallVedio;
+			productName = FootBallVedio;
+			productReference = E4138EAD171E4D26002E3BCD /* FootBallVedio.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E4138EA5171E4D26002E3BCD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JM;
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = jam;
+			};
+			buildConfigurationList = E4138EA8171E4D26002E3BCD /* Build configuration list for PBXProject "FootBallVedio" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = E4138EA4171E4D26002E3BCD;
+			productRefGroup = E4138EAE171E4D26002E3BCD /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E4138EAC171E4D26002E3BCD /* FootBallVedio */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E4138EAB171E4D26002E3BCD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4138EBB171E4D26002E3BCD /* InfoPlist.strings in Resources */,
+				E4138EC3171E4D26002E3BCD /* Default.png in Resources */,
+				E4138EC5171E4D26002E3BCD /* Default@2x.png in Resources */,
+				E4138EC7171E4D26002E3BCD /* Default-568h@2x.png in Resources */,
+				E4138ED0171E4D26002E3BCD /* JMMasterViewController.xib in Resources */,
+				E4138ED3171E4D26002E3BCD /* JMDetailViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E4138EA9171E4D26002E3BCD /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E4138EBD171E4D26002E3BCD /* main.m in Sources */,
+				E4138EC1171E4D26002E3BCD /* JMAppDelegate.m in Sources */,
+				E4138ECA171E4D26002E3BCD /* JMMasterViewController.m in Sources */,
+				E4138ECD171E4D26002E3BCD /* JMDetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E4138EB9171E4D26002E3BCD /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4138EBA171E4D26002E3BCD /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		E4138ECE171E4D26002E3BCD /* JMMasterViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4138ECF171E4D26002E3BCD /* en */,
+			);
+			name = JMMasterViewController.xib;
+			sourceTree = "<group>";
+		};
+		E4138ED1171E4D26002E3BCD /* JMDetailViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E4138ED2171E4D26002E3BCD /* en */,
+			);
+			name = JMDetailViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E4138ED4171E4D26002E3BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		E4138ED5171E4D26002E3BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E4138ED7171E4D26002E3BCD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FootBallVedio/FootBallVedio-Prefix.pch";
+				INFOPLIST_FILE = "FootBallVedio/FootBallVedio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4138ED8171E4D26002E3BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FootBallVedio/FootBallVedio-Prefix.pch";
+				INFOPLIST_FILE = "FootBallVedio/FootBallVedio-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E4138EA8171E4D26002E3BCD /* Build configuration list for PBXProject "FootBallVedio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4138ED4171E4D26002E3BCD /* Debug */,
+				E4138ED5171E4D26002E3BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E4138ED6171E4D26002E3BCD /* Build configuration list for PBXNativeTarget "FootBallVedio" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E4138ED7171E4D26002E3BCD /* Debug */,
+				E4138ED8171E4D26002E3BCD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E4138EA5171E4D26002E3BCD /* Project object */;
+}
