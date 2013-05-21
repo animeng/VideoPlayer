@@ -27,7 +27,7 @@
         self.contentSizeForViewInPopover = CGSizeMake(320.0, 600.0);
         _objects = [[NSMutableArray alloc] init];
         self.getAction = [[JMBasicAction alloc] init];
-        self.getAction.basicPath = @"LiveVideo/video";
+        self.getAction.basicPath = @"LiveVideo/football";
     }
     return self;
 }
@@ -65,12 +65,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return [_objects count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return _objects.count;
+    NSDictionary *object = _objects[section];
+    NSArray * contents = [object objectForKey:@"list"];
+    return contents.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -79,20 +81,50 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     }
     
-    NSDictionary *object = _objects[indexPath.row];
-    cell.textLabel.text = [object objectForKey:@"name"];
+    NSDictionary *object = _objects[indexPath.section];
+    NSArray * contents = [object objectForKey:@"list"];
+    NSDictionary * content = [contents objectAtIndex:indexPath.row];
+    cell.textLabel.text = [content objectForKey:@"title"];
+    cell.detailTextLabel.text = [content objectForKey:@"subtitle"];
+    cell.textLabel.backgroundColor = [UIColor clearColor];
+    cell.detailTextLabel.backgroundColor = [UIColor clearColor];
+    if (indexPath.row%2 == 1) {
+        cell.contentView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.1];
+    }
+    else{
+        cell.contentView.backgroundColor = [UIColor whiteColor];
+    }
     return cell;
 }
 
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSDate *object = _objects[indexPath.row];
-    self.detailViewController.detailItem = object;
+    NSDictionary *object = _objects[indexPath.section];
+    NSArray * contents = [object objectForKey:@"list"];
+    NSDictionary * content = [contents objectAtIndex:indexPath.row];
+    self.detailViewController.detailItem = content;
 }
+
+- (NSString*)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    NSDictionary * object = _objects[section];
+    return [object objectForKey:@"name"];
+}
+
+//- (UIView*)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+//{
+//    UILabel *bgView = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.width, 20)];
+//    NSDictionary * object = _objects[section];
+//    bgView.text = [object objectForKey:@"name"];
+//    bgView.backgroundColor = [[UIColor blueColor] colorWithAlphaComponent:0.5];
+//    return bgView;
+//}
+
+#pragma mark - rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {

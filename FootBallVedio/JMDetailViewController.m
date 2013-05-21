@@ -12,16 +12,19 @@
 #import "iFlyMSC/IFlyRecognizeControl.h"
 #import "JMBasicAction.h"
 #import "MBProgressHUD.h"
+#import "UMSocialSnsService.h"
 
 #define LabelTagOffset 1000
 #define MaxLabelNum 20
 
-@interface JMDetailViewController () <HPGrowingTextViewDelegate,IFlyRecognizeControlDelegate>
+@interface JMDetailViewController () <HPGrowingTextViewDelegate,IFlyRecognizeControlDelegate,UIWebViewDelegate>
 @property (strong, nonatomic) UIPopoverController *masterPopoverController;
 @property (strong, nonatomic) MPMoviePlayerController * player;
 
 @property (strong, nonatomic) UIView *containerView;
 @property (nonatomic, strong) HPGrowingTextView *textView;
+@property (nonatomic,strong) UIImageView *backgroundView;
+@property (nonatomic,strong) UIWebView *webView;
 
 @property (nonatomic,strong) IFlyRecognizeControl *audioRecognizeCtr;
 @property (nonatomic,strong) UIButton *iFlyAudioBtn;
@@ -29,9 +32,7 @@
 @property (nonatomic,strong) JMBasicAction *postAction;
 
 @property (nonatomic,strong) NSTimer *timer;
-
 @property (nonatomic,strong) NSString *previousText;
-@property (nonatomic,strong) UIImageView *backgroundView;
 @end
 
 @implementation JMDetailViewController
@@ -47,7 +48,16 @@
     [self updateView];
     if (self.masterPopoverController != nil) {
         [self.masterPopoverController dismissPopoverAnimated:YES];
-    }        
+    }
+}
+
+- (BOOL)checkVideoFormat:(NSString*)url
+{
+    BOOL permitPlay = [url hasSuffix:@".m3u8"] ||
+    [url hasSuffix:@".mp4"]  ||
+    [url hasSuffix:@".mov"]  ||
+    [url hasSuffix:@".m4v"];
+    return permitPlay;
 }
 
 #pragma mark - setup view
@@ -157,15 +167,43 @@
     self.audioRecognizeCtr.alpha = 0;
 }
 
+- (void)configureNav
+{
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemReply target:self action:@selector(shareSNS:)];
+}
+
+- (void)configureWebView
+{
+    self.webView = [[UIWebView alloc] init];
+    self.webView.frame = self.view.bounds;
+    self.webView.delegate = self;
+    self.webView.height = self.webView.height - 40;
+    [self.view addSubview:self.webView];
+}
+
 - (void)updateView
 {
     NSDictionary *dic = (NSDictionary*)_detailItem;
-    NSURL *url = [NSURL URLWithString:[dic objectForKey:@"url"]];
-    self.player.contentURL = url;
-    [self.player prepareToPlay];
-    [self.player play];
-    self.backgroundView.hidden = NO;
-    [MBProgressHUD showHUDAddedTo:self.backgroundView animated:YES];
+    NSString *urlStr = [dic objectForKey:@"url"];
+    NSURL *url = [NSURL URLWithString:urlStr];
+    if ([self checkVideoFormat:urlStr]) {
+        self.player.movieSourceType = MPMovieSourceTypeStreaming;
+        self.webView.hidden = YES;
+        [self.player stop];
+        self.player.contentURL = url;
+        [self.player play];
+        self.backgroundView.hidden = NO;
+        [MBProgressHUD showHUDAddedTo:self.backgroundView animated:YES];
+    }
+    else{
+        self.player.view.hidden = YES;
+        self.backgroundView.hidden = YES;
+        self.webView.hidden = NO;
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        self.webView.scalesPageToFit = YES;
+        [self.webView loadRequest:request];
+    }
+    self.title = [dic objectForKey:@"title"];
 }
 
 #pragma mark - control lifecycle
@@ -185,6 +223,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self configureNav];
+    [self configureWebView];
     [self configurePlayerView];
     [self configureTextView];
     [self configureAudioView];
@@ -205,7 +245,7 @@
     if (IOSVersion >=6.0) {
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieDisplayChangeCallBack:) name:MPMoviePlayerReadyForDisplayDidChangeNotification object:self.player];
     }
-
+    
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieLoadStateChangeCallBack:) name:MPMoviePlayerLoadStateDidChangeNotification object:self.player];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(movieDidExitFullScreenCallBack:) name:MPMoviePlayerDidExitFullscreenNotification object:self.player];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(moviedidEnterFullScreenCallBack:) name:MPMoviePlayerDidEnterFullscreenNotification object:self.player];
@@ -217,7 +257,7 @@
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(keyboardWillHide:)
-                                                 name:UIKeyboardWillHideNotification 
+                                                 name:UIKeyboardWillHideNotification
                                                object:nil];
 }
 
@@ -228,7 +268,7 @@
     if (IOSVersion>=6.0) {
         [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerReadyForDisplayDidChangeNotification object:self.player];
     }
-
+    
     [[NSNotificationCenter defaultCenter] removeObserver:self name:MPMoviePlayerPlaybackDidFinishNotification object:self.player];
     
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardWillShowNotification object:nil];
@@ -249,7 +289,7 @@
         self.player.view.frame = self.view.bounds;
         self.player.view.height = self.player.view.height - 40;
     }];
-
+    
 }
 
 - (void)movieLoadStateChangeCallBack:(NSNotification*)aNotification
@@ -258,17 +298,18 @@
     [MBProgressHUD hideAllHUDsForView:self.backgroundView animated:YES];
     if (player.playbackState == MPMoviePlaybackStatePlaying) {
         self.backgroundView.hidden = YES;
-
         [self removeDriftLabel];
         [self.timer invalidate];
         self.timer = [NSTimer scheduledTimerWithTimeInterval:5.0
-                                             target:self
-                                           selector:@selector(getCommentText)userInfo:nil
-                                            repeats:YES];
+                                                      target:self
+                                                    selector:@selector(getCommentText)userInfo:nil
+                                                     repeats:YES];
     }else if(player.playbackState == MPMoviePlaybackStateInterrupted){
         self.backgroundView.hidden = NO;
         [MBProgressHUD showHUDAddedTo:self.backgroundView animated:YES];
         [self.player play];
+    }else if(player.playbackState == MPMoviePlaybackStatePaused){
+        self.backgroundView.hidden = YES;
     }else{
         [self.timer invalidate];
         self.timer = nil;
@@ -311,7 +352,7 @@
     [UIView setAnimationCurve:[curve intValue]];
 	
 	self.containerView.frame = containerFrame;
-
+    
 	[UIView commitAnimations];
 }
 
@@ -332,7 +373,7 @@
 	[UIView commitAnimations];
 }
 
-#pragma mark - rotation 
+#pragma mark - rotation
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation
 {
@@ -349,6 +390,8 @@
     [UIView animateWithDuration:0.25 animations:^{
         self.player.view.frame = self.view.bounds;
         self.player.view.height = self.player.view.height - 40;
+        self.webView.frame = self.view.bounds;
+        self.webView.height = self.webView.height - 40;
     }];
 }
 
@@ -358,6 +401,16 @@
 }
 
 #pragma mark - btn event
+
+- (void)shareSNS:(id)sender
+{
+    [UMSocialSnsService presentSnsIconSheetView:self
+                                         appKey:UMENG_APPKEY
+                                      shareText:ShareContent
+                                     shareImage:[UIImage imageNamed:@"icon.png"]
+                                shareToSnsNames:[NSArray arrayWithObjects:UMShareToSina,UMShareToTencent,UMShareToRenren,UMShareToQzone,UMShareToDouban,UMShareToEmail,UMShareToSms,nil]
+                                       delegate:nil];
+}
 
 - (void)removeDriftLabel
 {
@@ -427,8 +480,8 @@
         range.location = index * maxNumInLine;
         
         range.length = maxNumInLine*(index + 1) > [result count] ?
-                       ([result count] - range.location):
-                       (maxNumInLine*(index + 1) - range.location);
+        ([result count] - range.location):
+        (maxNumInLine*(index + 1) - range.location);
         
         NSArray *subAry = [result subarrayWithRange:range];
         [self addDriftAnimation:subAry baseTime:baseTime line:index isSelf:NO];
@@ -442,12 +495,11 @@
         return;
     }
     NSDictionary *tvInfo = _detailItem;
-    NSString *tvName = [tvInfo objectForKey:@"name"];
+    NSString *tvName = [tvInfo objectForKey:@"title"];
     NSDictionary *para = @{@"topic":tvName};
     self.postAction.parameter = [NSMutableDictionary dictionaryWithDictionary:para];
     [self.postAction postResult:^(NSArray *result) {
         [self startDriftAnimation:result];
-//        [self addDriftAnimation:result baseTime:4.0 line:0 isSelf:NO];
     } error:^(NSError *error) {
         ;
     }];
@@ -457,7 +509,7 @@
 {
 	[self.textView resignFirstResponder];
     NSDictionary *tvInfo = _detailItem;
-    NSString *tvName = [tvInfo objectForKey:@"name"];
+    NSString *tvName = [tvInfo objectForKey:@"title"];
     if ([self.textView hasText]) {
         self.previousText = self.textView.text;
         NSDictionary *para = @{@"topic":tvName,@"message": self.textView.text};
@@ -546,7 +598,21 @@
     JMDEBUGPRINT(@"识别结束回调finish.....");
     self.iFlyAudioBtn.enabled = YES;
 	JMDEBUGPRINT(@"getUpflow:%d,getDownflow:%d",[iFlyRecognizeControl getUpflow:FALSE],[iFlyRecognizeControl getDownflow:FALSE]);
+    
+}
 
+#pragma mark - webView delegate
+
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+    [MBProgressHUD hideAllHUDsForView:self.webView animated:YES];
+    self.webView.frame = self.view.bounds;
+    self.webView.height = self.webView.height - 40;
+}
+
+- (void)webViewDidStartLoad:(UIWebView *)webView
+{
+    [MBProgressHUD showHUDAddedTo:self.webView animated:YES];
 }
 
 @end

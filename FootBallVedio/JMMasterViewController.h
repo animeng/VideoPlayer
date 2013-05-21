@@ -14,4 +14,6 @@
 
 @property (strong, nonatomic) JMDetailViewController *detailViewController;
 
+- (void)refreshSource:(id)sender;
+
 @end

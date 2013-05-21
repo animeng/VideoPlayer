@@ -15,6 +15,7 @@
 #import "JMDebug.h"
 #import "JMAppDelegate.h"
 #import "URLDefine.h"
+#import "MobClick.h"
 
 /*************macro************/
 
@@ -34,6 +35,9 @@
 
 #define IFLY_APPID @"5184cf0e"
 #define IFLY_ENGINE_URL @"http://dev.voicecloud.cn/index.htm"
+
+#define UMENG_APPKEY @"5191dc5956240b4628001b26"
+#define ShareContent @"ipad看直播就用风云直播"
 
 /*************enum************/
 
