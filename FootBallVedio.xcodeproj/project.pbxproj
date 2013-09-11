@@ -689,7 +689,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yimeng Wang (B7SWW37H85)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -705,7 +705,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "CBF1A582-8C5C-4BE9-B48F-D23149F14566";
+				PROVISIONING_PROFILE = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -724,7 +724,7 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yimeng Wang (B7SWW37H85)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -733,7 +733,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "CBF1A582-8C5C-4BE9-B48F-D23149F14566";
+				PROVISIONING_PROFILE = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 2;
@@ -744,34 +744,7 @@
 		E4138ED7171E4D26002E3BCD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yimeng Wang (B7SWW37H85)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Yimeng Wang (B7SWW37H85)";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)\"",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FootBallVedio/FootBallVedio-Prefix.pch";
-				INFOPLIST_FILE = "FootBallVedio/FootBallVedio-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SRCROOT)/FootBallVedio/UMSocial_Sdk_2.1.2/frameworks/Wechat\"",
-					"\"$(SRCROOT)/FootBallVedio/UMSocial_Sdk_2.1.2\"",
-					"\"$(SRCROOT)/FootBallVedio/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
-				);
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CBF1A582-8C5C-4BE9-B48F-D23149F14566";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "CBF1A582-8C5C-4BE9-B48F-D23149F14566";
-				TARGETED_DEVICE_FAMILY = 2;
-				WRAPPER_EXTENSION = app;
-			};
-			name = Debug;
-		};
-		E4138ED8171E4D26002E3BCD /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer: Yimeng Wang (B7SWW37H85)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -788,7 +761,34 @@
 					"\"$(SRCROOT)/FootBallVedio/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "CBF1A582-8C5C-4BE9-B48F-D23149F14566";
+				PROVISIONING_PROFILE = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
+				TARGETED_DEVICE_FAMILY = 2;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		E4138ED8171E4D26002E3BCD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Yimeng Wang (39453QM9H9)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FootBallVedio/FootBallVedio-Prefix.pch";
+				INFOPLIST_FILE = "FootBallVedio/FootBallVedio-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/FootBallVedio/UMSocial_Sdk_2.1.2/frameworks/Wechat\"",
+					"\"$(SRCROOT)/FootBallVedio/UMSocial_Sdk_2.1.2\"",
+					"\"$(SRCROOT)/FootBallVedio/UMAnalytics_Sdk_2.2.0.OpenUDID\"",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "F752B863-8B32-4AB5-9672-BCB1479D7FDF";
 				TARGETED_DEVICE_FAMILY = 2;
 				WRAPPER_EXTENSION = app;
